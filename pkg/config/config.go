@@ -3,14 +3,14 @@ package config
 import (
 	"fmt"
 	"github.com/joho/godotenv"
-	"log"
 	"os"
 )
 
 type Config struct {
-	PublicHost string
-	Port       string
-	Database   *Database
+	PublicHost   string
+	Port         string
+	Database     *Database
+	TestDatabase *Database
 }
 
 type Database struct {
@@ -22,13 +22,24 @@ type Database struct {
 	DSN      string
 }
 
+const MigrationsPath = "file://migrations"
+
 var Envs = initConfig()
 
-func initConfig() Config {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+// LoadENV Added for tests
+func LoadENV() {
+	path := ".env"
+	for {
+		err := godotenv.Load(path)
+		if err == nil {
+			break
+		}
+		path = "../" + path
 	}
+}
+
+func initConfig() Config {
+	LoadENV()
 
 	dbConfig := &Database{
 		Port:     getEnv("DB_PORT", "5432"),
@@ -39,17 +50,36 @@ func initConfig() Config {
 	}
 
 	dbConfig.DSN = fmt.Sprintf(
-		"postgres://%s:%s@%s/%s?sslmode=disable",
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
 		dbConfig.User,
 		dbConfig.Password,
 		dbConfig.Host,
+		dbConfig.Port,
 		dbConfig.Name,
 	)
 
+	testDbConfig := &Database{
+		Port:     getEnv("DB_PORT_TEST", "5433"),
+		User:     getEnv("DB_USER_TEST", "postgres"),
+		Password: getEnv("DB_PASSWORD_TEST", "postgres"),
+		Host:     getEnv("DB_HOST_TEST", "postgres"),
+		Name:     getEnv("DB_NAME_TEST", "postgres"),
+	}
+
+	testDbConfig.DSN = fmt.Sprintf(
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
+		testDbConfig.User,
+		testDbConfig.Password,
+		testDbConfig.Host,
+		testDbConfig.Port,
+		testDbConfig.Name,
+	)
+
 	return Config{
-		PublicHost: getEnv("PUBLIC_HOST", "http://localhost"),
-		Port:       getEnv("PORT", "8080"),
-		Database:   dbConfig,
+		PublicHost:   getEnv("PUBLIC_HOST", "http://localhost"),
+		Port:         getEnv("PORT", "8080"),
+		Database:     dbConfig,
+		TestDatabase: testDbConfig,
 	}
 }
 

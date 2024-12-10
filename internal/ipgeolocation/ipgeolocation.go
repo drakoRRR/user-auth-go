@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const IpApiUrl = "http://ip-api.com/json/"
+var IpApiUrl = "http://ip-api.com/json/"
 
 type IPResponse struct {
 	Country string `json:"country"`

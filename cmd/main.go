@@ -26,8 +26,8 @@ func main() {
 	}
 	defer dbConn.Close()
 
-	userRepo := repository.NewUserRepository(dbConn)
-	userService := service.NewUserService(*userRepo)
+	userRepo := repository.NewSQLUserRepository(dbConn)
+	userService := service.NewUserService(userRepo)
 
 	services := &handlers.Services{
 		Users: *userService,
