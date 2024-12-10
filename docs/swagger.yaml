@@ -1,0 +1,73 @@
+definitions:
+  models.RegisterUserPayload:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      password:
+        maxLength: 130
+        minLength: 3
+        type: string
+    required:
+    - email
+    - first_name
+    - password
+    type: object
+  models.UserResponse:
+    properties:
+      country:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  utils.Response:
+    properties:
+      data: {}
+      error:
+        type: boolean
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user in the system
+      parameters:
+      - description: User data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegisterUserPayload'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: Create a new user
+      tags:
+      - user
+swagger: "2.0"
