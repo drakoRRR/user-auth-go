@@ -46,7 +46,7 @@ func (s *UserService) CreateUser(
 		return nil, err
 	}
 
-	country, err := ipgeolocation.GetCountry("185.209.56.245")
+	country, err := ipgeolocation.GetCountry(ipAddress)
 	if err != nil {
 		log.Printf("Error enriching country for IP %s: %v", ipAddress, err)
 		country = "Unknown"
