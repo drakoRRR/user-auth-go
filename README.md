@@ -30,7 +30,7 @@ To stop the application, use: `make docker-down`
 2. Run Migrations, use `make migrate-up`. To roll back migrations, use: `make migrate-down`
 3. Start Application, use `make local-up`
 
-![](media_readme/start_server.png)
+![start_server](media_readme/start_server.png)
 
 Backend reach by: `http://0.0.0.0:8080`
 
@@ -45,12 +45,14 @@ Backend reach by: `http://0.0.0.0:8080`
 * To create a new migration, use:
 `make migration name_of_migration`
 
+![migration](media_readme/migrations.png)
+
 ## Tests
 * To run tests
 `make test`
 
 ## Docs
-![](media_readme/swagger.png)
+![swagger](media_readme/swagger.png)
 Reach by: `http://0.0.0.0:8080/swagger/index.html`
 
 * To update the documentation, use:
