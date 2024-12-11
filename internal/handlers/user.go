@@ -1,10 +1,11 @@
 package handlers
 
 import (
+	"net/http"
+
 	"github.com/drakoRRR/user-auth-go/internal/models"
 	"github.com/drakoRRR/user-auth-go/pkg/utils"
 	"go.uber.org/zap"
-	"net/http"
 )
 
 // CreateUserHandler godoc

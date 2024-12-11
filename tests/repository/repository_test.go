@@ -2,11 +2,12 @@ package repository
 
 import (
 	"database/sql"
-	"github.com/drakoRRR/user-auth-go/pkg/config"
-	"github.com/drakoRRR/user-auth-go/pkg/migrations"
 	"log"
 	"os"
 	"testing"
+
+	"github.com/drakoRRR/user-auth-go/pkg/config"
+	"github.com/drakoRRR/user-auth-go/pkg/migrations"
 
 	_ "github.com/lib/pq"
 )

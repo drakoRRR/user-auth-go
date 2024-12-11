@@ -3,13 +3,14 @@ package service
 import (
 	"context"
 	"errors"
+	"log"
+	"time"
+
 	"github.com/drakoRRR/user-auth-go/internal/auth"
 	"github.com/drakoRRR/user-auth-go/internal/ipgeolocation"
 	"github.com/drakoRRR/user-auth-go/internal/models"
 	"github.com/drakoRRR/user-auth-go/internal/repository"
 	"github.com/go-playground/validator/v10"
-	"log"
-	"time"
 )
 
 type UserServiceInterface interface {

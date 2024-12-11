@@ -1,9 +1,10 @@
 package routes
 
 import (
+	"net/http"
+
 	"github.com/drakoRRR/user-auth-go/internal/handlers"
 	httpSwagger "github.com/swaggo/http-swagger"
-	"net/http"
 )
 
 type Route struct {

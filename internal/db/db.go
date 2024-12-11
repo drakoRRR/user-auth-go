@@ -3,8 +3,9 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"github.com/drakoRRR/user-auth-go/pkg/config"
 	"log"
+
+	"github.com/drakoRRR/user-auth-go/pkg/config"
 
 	_ "github.com/lib/pq"
 )

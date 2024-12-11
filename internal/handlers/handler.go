@@ -1,10 +1,11 @@
 package handlers
 
 import (
+	"net/http"
+
 	"github.com/drakoRRR/user-auth-go/internal/service"
 	"github.com/drakoRRR/user-auth-go/pkg/config"
 	"github.com/drakoRRR/user-auth-go/pkg/logger"
-	"net/http"
 )
 
 type Services struct {

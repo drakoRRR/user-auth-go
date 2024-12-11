@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/drakoRRR/user-auth-go/pkg/config"
-	"github.com/drakoRRR/user-auth-go/pkg/migrations"
 	"log"
 	"os"
+
+	"github.com/drakoRRR/user-auth-go/pkg/config"
+	"github.com/drakoRRR/user-auth-go/pkg/migrations"
 
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/lib/pq"

@@ -3,11 +3,12 @@ package ipgeolocation
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/drakoRRR/user-auth-go/internal/ipgeolocation"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/drakoRRR/user-auth-go/internal/ipgeolocation"
+	"github.com/stretchr/testify/assert"
 )
 
 func mockIPAPIResponse(w http.ResponseWriter, r *http.Request) {

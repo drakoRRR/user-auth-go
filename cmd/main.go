@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/drakoRRR/user-auth-go/cmd/api"
 	"github.com/drakoRRR/user-auth-go/internal/db"
 	"github.com/drakoRRR/user-auth-go/internal/handlers"
@@ -10,7 +12,6 @@ import (
 	"github.com/drakoRRR/user-auth-go/pkg/config"
 	"github.com/drakoRRR/user-auth-go/pkg/logger"
 	"go.uber.org/zap"
-	"log"
 
 	_ "github.com/drakoRRR/user-auth-go/docs"
 )

@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+
 	"github.com/drakoRRR/user-auth-go/internal/models"
 	"github.com/drakoRRR/user-auth-go/pkg/utils"
 )

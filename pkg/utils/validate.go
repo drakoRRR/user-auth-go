@@ -2,8 +2,9 @@ package utils
 
 import (
 	"errors"
-	"github.com/drakoRRR/user-auth-go/internal/models"
 	"regexp"
+
+	"github.com/drakoRRR/user-auth-go/internal/models"
 )
 
 func ValidateUserData(user *models.User) error {

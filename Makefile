@@ -27,3 +27,6 @@ test:
 
 update-docs:
 	swag init -g cmd/main.go
+
+sort-import:
+	goimports -w .

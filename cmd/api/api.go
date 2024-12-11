@@ -2,11 +2,12 @@ package api
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/drakoRRR/user-auth-go/internal/handlers"
 	"github.com/drakoRRR/user-auth-go/internal/handlers/routes"
 	"github.com/drakoRRR/user-auth-go/pkg/config"
 	"github.com/drakoRRR/user-auth-go/pkg/logger"
-	"net/http"
 )
 
 func InitServer(appConfig *config.Config, services *handlers.Services, log *logger.Logger) *http.Server {
