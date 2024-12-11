@@ -31,6 +31,7 @@ To stop the application, use: `make docker-down`
 3. Start Application, use `make local-up`
 
 ![](media_readme/start_server.png)
+
 Backend reach by: `http://0.0.0.0:8080`
 
 ## Migrations
