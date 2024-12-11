@@ -26,7 +26,7 @@ To start the application with Docker, use: `make docker-up`
 To stop the application, use: `make docker-down`
 
 ### Local variant
-1. Start the main and test databases locally using `make dp-up`. To stop them, use: `make dp-down`
+1. Start the main and test databases locally using `make db-up`. To stop them, use: `make db-down`
 2. Run Migrations, use `make migrate-up`. To roll back migrations, use: `make migrate-down`
 3. Start Application, use `make local-up`
 
