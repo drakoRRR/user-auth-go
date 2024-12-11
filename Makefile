@@ -1,8 +1,17 @@
 local-up:
 	@go run cmd/main.go
 
-compose-up:
+db-up:
 	docker-compose up -d --build
+
+db-down:
+	docker-compose down
+
+docker-up:
+	docker-compose -f docker-compose-app.yaml up -d --build
+
+docker-down:
+	docker-compose -f docker-compose-app.yaml down
 
 migration:
 	@migrate create -ext sql -dir migrations $(filter-out $@,$(MAKECMDGOALS))

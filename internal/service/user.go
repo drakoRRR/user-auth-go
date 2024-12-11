@@ -12,6 +12,10 @@ import (
 	"time"
 )
 
+type UserServiceInterface interface {
+	CreateUser(ctx context.Context, user models.RegisterUserPayload, ipAddress string) (*models.UserResponse, error)
+}
+
 type UserService struct {
 	repo      repository.UserRepository
 	validator *validator.Validate
