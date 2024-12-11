@@ -30,6 +30,7 @@ To stop the application, use: `make docker-down`
 2. Run Migrations, use `make migrate-up`. To roll back migrations, use: `make migrate-down`
 3. Start Application, use `make local-up`
 
+![](media_readme/start_server.png)
 Backend reach by: `http://0.0.0.0:8080`
 
 ## Migrations

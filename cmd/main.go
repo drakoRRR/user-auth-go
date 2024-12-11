@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/drakoRRR/user-auth-go/cmd/api"
 	"github.com/drakoRRR/user-auth-go/internal/db"
 	"github.com/drakoRRR/user-auth-go/internal/handlers"
@@ -34,7 +35,9 @@ func main() {
 	}
 
 	server := api.InitServer(&config.Envs, services, projectLogger)
-	projectLogger.Info("Server is running on %s:%s", zap.String("host", cfg.PublicHost), zap.String("port", cfg.Port))
+
+	address := fmt.Sprintf("%s:%s", cfg.PublicHost, cfg.Port)
+	projectLogger.Info("Server is running on " + address)
 	if err := server.ListenAndServe(); err != nil {
 		projectLogger.Fatal("Server failed to start", zap.Error(err))
 	}
